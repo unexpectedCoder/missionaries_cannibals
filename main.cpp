@@ -139,30 +139,18 @@ void solve(State *s, States &story, int rule, int rules)
         if (i == rule)
             continue;
 
-        switch (i) {
-        case 1: 
-            if (isRule_1(s))
-                ns = makeRule_1(s);
-            break;
-        case 2:
-            if (isRule_2(s))
-                ns = makeRule_2(s);
-            break;
-        case 3:
-            if (isRule_3(s))
-                ns = makeRule_3(s);
-            break;
-        case 4:
-            if (isRule_4(s))
-                ns = makeRule_4(s);
-            break;
-        case 5:
-            if (isRule_5(s))
-                ns = makeRule_5(s);
-            break;
-        default:
+        if (i == 1 and isRule_1(s))
+            ns = makeRule_1(s);
+        else if (i == 2 and isRule_2(s))
+            ns = makeRule_2(s);
+        else if (i == 3 and isRule_3(s))
+            ns = makeRule_3(s);
+        else if (i == 4 and isRule_4(s))
+            ns = makeRule_4(s);
+        else if (i == 5 and isRule_5(s))
+            ns = makeRule_5(s);
+        else
             ns = nullptr;
-        }
         
         if (ns) {
             s->next = ns;
